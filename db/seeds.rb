@@ -14,6 +14,7 @@ Power.create(name:"super strength", description:"gives the wielder super-human s
 Power.create(name:"flight", description:"gives the wielder the ability to fly through the skies at supersonic speed")
 
 
-HeroPower.create(strength:"Average", power_id:"2", hero_id:"1")
+
 HeroPower.create(hero_id:"2", power_id:"2", strength:"Beyond Average")
 HeroPower.create(hero_id:"1", power_id:"1", strength:"Average")
+HeroPower.create(hero_id:"3", power_id:"1", strength:"Average")

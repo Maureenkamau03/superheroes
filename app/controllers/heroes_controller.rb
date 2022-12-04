@@ -1,7 +1,7 @@
 class HeroesController < ApplicationController
     def index
         hero = Hero.all
-        render json: hero, except:[:created_at, :updated_at]
+        render json: hero, except:[:created_at, :updated_at], status: :ok
     end
 
 
@@ -13,4 +13,5 @@ class HeroesController < ApplicationController
             render json: {error: "Hero not found"}, status: :not_found
         end
     end
+
 end

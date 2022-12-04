@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_04_042604) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_04_063326) do
   create_table "hero_powers", force: :cascade do |t|
     t.string "strength"
-    t.integer "power_id"
     t.integer "hero_id"
+    t.integer "power_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

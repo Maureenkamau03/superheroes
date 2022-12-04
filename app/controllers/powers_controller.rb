@@ -4,13 +4,13 @@ class PowersController < ApplicationController
 
     def index
     power = Power.all
-    render json: power, except: [:created_at, :updated_at]
+    render json: power
     end
 
     def show
         power = Power.find_by(id: params[:id])
             if power
-            render json: power, except: [:created_at, :updated_at], status: :ok
+            render json: power, status: :ok
             else
             render json: {error:"Power not found"}, status: :not_found
             end

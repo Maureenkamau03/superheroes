@@ -9,7 +9,7 @@ skip_before_action :verify_authenticity_token
 
 
     def create
-        hero_powers = HeroPower.create(hero_params)
+        hero_powers = HeroPower.create!(hero_params)
         if hero_powers.valid?
         render json: hero_powers, status: :created  
         else

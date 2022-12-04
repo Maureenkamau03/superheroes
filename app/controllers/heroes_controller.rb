@@ -1,7 +1,9 @@
 class HeroesController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def index
         hero = Hero.all
-        render json: hero, except:[:created_at, :updated_at], status: :ok
+        render json: hero, status: :ok, include: :hero_powers
     end
 
 

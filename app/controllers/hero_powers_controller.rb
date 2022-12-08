@@ -1,6 +1,6 @@
 class HeroPowersController < ApplicationController
-skip_before_action :verify_authenticity_token
-
+    skip_before_action :verify_authenticity_token
+    rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
 
     def index
         hero_powers = HeroPower.all
@@ -9,11 +9,8 @@ skip_before_action :verify_authenticity_token
 
     def create
         hero_powers = HeroPower.create(hero_params)
-        if hero_powers.valid?
         render json: hero_powers, status: :created  
-        else
-        render json: {errors: hero_powers.errors}, status: :unprocessable_entity    
-        end
+       
     end
 
 
@@ -21,6 +18,9 @@ skip_before_action :verify_authenticity_token
 
     def hero_params
         params.permit(:strength, :power_id, :hero_id)
+    end
+    def unprocessable_entity_method entity
+        render json: {errors: entity.record.errors}, status: :unprocessable_entity
     end
     
 end
